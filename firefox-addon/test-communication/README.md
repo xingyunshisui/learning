@@ -1,0 +1,1 @@
+# 这个扩展用来测试 Content Script、Addon Script 和 Web page script 之间的通信

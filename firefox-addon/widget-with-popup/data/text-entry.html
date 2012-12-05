@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <meta charset="utf-8"/>
-    <style type="text/css" media="all">
-      textarea {
-        margin: 10px;
-      }
-    </style>
+  <title></title>
+  <meta charset="utf-8"/>
+  <style type="text/css" media="all">
+    textarea {
+      margin: 10px;
+    }
+  </style>
+  <script type="text/javascript">
+    var name = 'John'
+    window.address = 'Beijing, China'
+    console.log(typeof textArea)
+
+    // 失败，不能直接访问
+    setTimeout(function() {
+      console.log('attempt to visit variable from content script')
+      console.log(textArea)
+      console.log(window.textArea)
+      console.log(unsafeWindow.variableFromCS)
+    },3000)
+  </script>
 </head>
 <body>
-  <textarea rows="10" cols="20" id="edit-box"></textarea>
+<textarea rows="10" cols="20" id="edit-box"></textarea>
 </body>
 </html>

@@ -11,6 +11,15 @@ textArea.addEventListener('keyup', function onkeyup(event) {
     self.port.emit("text-entered", text);
     textArea.value = '';
   }
+
+  // 尝试直接访问页面中定义的 js 变量，结果：失败
+  console.log('name: ' + name)
+  console.log('address: ' + window.address)
+
+  // test unsafeWindow
+  console.log('test unsafeWindow')
+  console.log(unsafeWindow.address)
+  unsafeWindow.variableFromCS = 'from-cs'
 }, false);
 
 // Listen for the "show" event being sent from the

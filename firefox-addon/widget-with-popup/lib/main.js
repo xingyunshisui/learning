@@ -11,7 +11,8 @@ var text_entry = require("panel").Panel({
   contentURL: data.url("text-entry.html"),
 
   // 指定 popup 中的 content script 文件
-  contentScriptFile: data.url("get-text.js")
+  contentScriptFile: data.url("get-text.js"),
+  contentScriptWhen: 'ready'
 });
 
 // Create a widget, and attach the panel to it, so the panel is

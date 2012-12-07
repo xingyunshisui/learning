@@ -15,7 +15,12 @@ pageMode.PageMod({
   onAttach: function(worker) {
     worker.port.emit('page-mode:port.emit', 'from page-mode of type port.emit')
     worker.port.on('cs-page-mode:port.emit', function(msg) {
-      console.log('[Addon Script] page mode worker received message: ' + msg)
+      console.log('[Addon Script port.on] page mode worker received message: ' + msg)
+    })
+
+    worker.postMessage('from page-mode of type postMessage')
+    worker.on('message', function(msg) {
+      console.log('[Addon Script postMessage] page mode worker received message: ' + msg)
     })
   }
 })

@@ -3,6 +3,7 @@
 <head>
   <title></title>
   <meta charset="utf-8"/>
+  <link href="css/popup.css">
   <style type="text/css">
     body {
       height: 500px;
@@ -11,5 +12,17 @@
 </head>
 <body>
   <h1>Hello, I'm popup page.</h1>
+  <h2>test image</h2>
+  <img src="cc.jpg" alt=""> <!-- 可以直接访问到资源 -->
+  <script type="text/javascript" src="./popup.js"></script>
+  <!--<script type="text/javascript">-->
+    <!--self.port.on('show', function() {-->
+    <!--document.body.innerHTML += 'Popup is shown.'-->
+    <!--})-->
+
+    <!--self.port.emit('msg', {topic: 'say_hi', from: 'popup page script'})-->
+
+    <!--document.innerHTML += typeof(self)-->
+  <!--</script>-->
 </body>
 </html>

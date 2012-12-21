@@ -7,6 +7,9 @@ var pageMode = require('page-mod')
 // data 目录引用
 var data = self.data
 
+// 测试 addon 内资源文件路径
+console.log(data.url('images/cc.jpg'))
+
 pageMode.PageMod({
   include: '*',
   contentScriptFile: data.url('cs-page-mod.js'),
@@ -30,11 +33,12 @@ var popup = panel.Panel({
   height: 200,
 
   // 指定 popup 中的 html 文件
-  contentURL: data.url("popup.html"),
+  contentURL: data.url("popup.html")
 
   // 指定 popup 中的 content script 文件
-  contentScriptFile: data.url("cs-popup.js"),
-  contentScriptWhen: 'ready'
+  // 指定了 popup 的content script 后，contentURL 指定的 HTML 文件中的 page script 将失效
+//  contentScriptFile: data.url("cs-popup.js"),
+//  contentScriptWhen: 'ready'
 })
 
 var menuItem = contextMenu.Item({
@@ -59,6 +63,7 @@ widget.Widget({
 })
 
 popup.on("show", function() {
+  console.log('Popup shown.')
   // 发送 show 事件到 content script
   popup.port.emit("show");
 });
@@ -67,3 +72,9 @@ popup.port.on("text-entered", function (text) {
   console.log(text);
   popup.hide();
 });
+
+popup.port.on('msg', function(req) {
+  console.log('Received msg event.')
+  console.log(req.topic)
+  console.log(req.from)
+})

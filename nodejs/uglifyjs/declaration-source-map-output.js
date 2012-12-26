@@ -1,0 +1,1 @@
+{"version":3,"sources":["declaration.js"],"names":["name","hello","console","log"],"mappings":"AAAA,GAAIA,MAAO,MACX,SAASC,OAAMD,MACbE,QAAQC,IAAI,SAAWH,MAEzBC,MAAMD"}

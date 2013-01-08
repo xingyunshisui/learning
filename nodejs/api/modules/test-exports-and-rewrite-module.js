@@ -6,12 +6,16 @@ fs.doMyJob = function() {
 }
 
 exports.sayHi = function() {
-  console.log('hi')
+  console.log('hi1')
+}
+
+module.exports.sayHello = function() {
+  console.log('hello1')
 }
 
 module.exports = {
   sayHello: function() {
-    console.log('hello')
+    console.log('hello2')
   }
 }
 
@@ -19,7 +23,11 @@ module.exports = function() {
   console.log('module.exports is a function.')
 }
 
-// 结论：后添加的 module.exports 会覆盖前面的 module.exports 和 exports.PROP
+module.exports.sayHi = function() {
+  console.log('hi2')
+}
+
+// 结论：module.exports 会覆盖前面的 module.exports 和 exports.PROP
 
 // 可以成功调用
 fs.doMyJob()

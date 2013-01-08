@@ -8,6 +8,9 @@ fs.doMyJob()
 
 if (myModule.constructor === Function) {
   myModule()
+  if (myModule.sayHi) {
+    myModule.sayHi()
+  }
 } else if (myModule.constructor === Object) {
   if (myModule.sayHello) {
     myModule.sayHello()

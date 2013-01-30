@@ -1,0 +1,19 @@
+{
+  "name": "extsync",
+  "version": "0.0.1",
+  "description": "ExtSync is a cross-browser extension development framework that using web technologies: HTML, CSS and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "extension",
+    "chrome",
+    "firefox",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "fornever",
+  "license": "MIT"
+}

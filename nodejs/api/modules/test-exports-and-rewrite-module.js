@@ -27,6 +27,16 @@ module.exports.sayHi = function() {
   console.log('hi2')
 }
 
+module.exports = new Number(123)
+
+// 无效的附加函数
+module.exports.sayHi = function() {
+  console.log('hi3')
+}
+
+// module.exports 会覆盖之前和之后所有的 exports.PROPERTY 赋值
+exports.name = '123'
+
 // 结论：module.exports 会覆盖前面的 module.exports 和 exports.PROP
 
 // 可以成功调用

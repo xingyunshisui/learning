@@ -64,9 +64,14 @@ var replaceExports = function(propAccess) {
       var name = expression.name
       if (name == 'exports') {
         // exports.PROPERTY = VALUE
-        expression.name = filename
+        if (useModuleExports) {
+          propAccess.expression = null
+        } else {
+          expression.name = filename
+        }
       } else if (name == 'module' && property == 'exports') {
         // module.exports = VALUE or module.exports.PROPERTY = VALUE
+        useModuleExports = true
         if (isType(propAccess, 'Dot')) {
           propAccess.property = filename
         } else {
@@ -156,7 +161,7 @@ var code3 = function foo() {
   module.exports = function() {}
 }.toString()
 
-var ast = uglifyjs.parse(code3)
+var ast = uglifyjs.parse(code1)
 
 var ast2 = ast.transform(transformer);
 console.log(ast2.print_to_string({

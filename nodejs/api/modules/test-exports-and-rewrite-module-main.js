@@ -19,4 +19,22 @@ if (myModule.constructor === Function) {
   if (myModule.sayHi) {
     myModule.sayHi()
   }
+} else if (myModule.constructor === Number) {
+  console.log('I am a number')
+  console.log(myModule)
+  if (myModule.sayHi) {
+    myModule.sayHi()
+  }
+} else if (myModule.constructor === RegExp) {
+  console.log('I am a regexp')
+  console.log(myModule)
+  if (myModule.sayHi) {
+    myModule.sayHi()
+  }
+} else if (myModule.constructor === String) {
+  console.log('I am a string')
+  console.log(myModule)
+  if (myModule.sayHi) {
+    myModule.sayHi()
+  }
 }

@@ -109,11 +109,11 @@ var code3 = function foo() {
 
 var ast = uglifyjs.parse(code1)
 
-//var ast2 = ast.walk(walker);
-//console.log(ast2.print_to_string({
+// var ast2 = ast.walk(walker);
+// console.log(ast2.print_to_string({
 //  beautify: true,
 //  indent_level: 2
-//}));
+// }));
 
 console.log("Original:");
 console.log(ast.print_to_string({

@@ -1,6 +1,6 @@
 var UglifyJS = require('uglify-js')
 
-var consolidate = new UglifyJS.TreeTransformer(null, function (node) {
+var transformer = new UglifyJS.TreeTransformer(null, function (node) {
   if (node instanceof UglifyJS.AST_SimpleStatement) {
     var body = node.body
     if (body instanceof UglifyJS.AST_SymbolRef) {
@@ -91,7 +91,7 @@ var ast = UglifyJS.parse(function foo() {
 }.toString())
 ast.figure_out_scope()
 
-var ast2 = ast.transform(consolidate);
+var ast2 = ast.transform(transformer);
 console.log(ast2.print_to_string({ beautify:true }));
 
 console.log("Original:");
